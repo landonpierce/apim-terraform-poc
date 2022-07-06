@@ -13,7 +13,7 @@ variable "api_name" {
     type = string
 }
 
-variable "resource_name" {
+variable "resource_path" {
     description = "The path of the API Resource. Ex: /orders, /customers/orders, /products, etc."
     type = string
 }
