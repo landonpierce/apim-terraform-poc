@@ -21,8 +21,11 @@ module "api_management" {
 # Create an example API named "Orders"
 resource "azurerm_api_management_api" "orders_api" {
   name                = "Orders"
+  display_name = "Orders"
+  path = "orders"
+  protocols = [ "https" ]
   resource_group_name = azurerm_resource_group.apim_rg.name
-  api_management_name = var.api_management_name
+  api_management_name = module.api_management.api_management_name
   revision            = "1"
 }
 
@@ -32,9 +35,8 @@ resource "azurerm_api_management_api" "orders_api" {
 module "orders_api_management_operations"  {
   source = "./modules/api_management_api_operations"
   api_name = azurerm_api_management_api.orders_api.name
-  api_management_name = var.api_management_name
+  api_management_name = module.api_management.api_management_name
   resource_group_name = azurerm_resource_group.apim_rg.name
-  resource_path = "/orders"
 }
 
 ### API Management API Operation Policy ###
@@ -43,7 +45,7 @@ module "orders_api_management_operations"  {
 module "orders_api_management_operation_policy" {
   source = "./modules/api_management_api_operation_policy"
   api_name = azurerm_api_management_api.orders_api.name
-  api_management_name = var.api_management_name
+  api_management_name = module.api_management.api_management_name
   resource_group_name = azurerm_resource_group.apim_rg.name
   operation_id = module.orders_api_management_operations.operation_id_get
   xml_content_file_path = "./api_policies/get_policy.xml"
