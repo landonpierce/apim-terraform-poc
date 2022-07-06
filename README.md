@@ -1,6 +1,6 @@
 # Overview
 
-This repository demonstrates how to deploy Azure API Management operations and policies using terraform.
+This repository demonstrates how to deploy Azure API Management operations and policies using terraform. You may store policies in the `api_policies` folder (Recommended), or pass them in as strings using terraform variables. This example creates a simple "orders" API with 4 REST CRUD operations. There is only one policy applied to the GET policy, but you can add more in the `main.tf` file.
 
 ## To Use:
 

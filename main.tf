@@ -42,7 +42,7 @@ module "orders_api_management_operations"  {
 ### API Management API Operation Policy ###
 # Add a policy to the GET operation of the orders api
 
-module "orders_api_management_operation_policy" {
+module "orders_api_management_operation_policy_get" {
   source = "./modules/api_management_api_operation_policy"
   api_name = azurerm_api_management_api.orders_api.name
   api_management_name = module.api_management.api_management_name
