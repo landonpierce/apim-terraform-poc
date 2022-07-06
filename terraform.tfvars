@@ -1,0 +1,5 @@
+resource_group_name = "demo-rg-01"
+resource_group_location = "eastus"
+api_management_name = "demoapim01"
+publisher_email = "demo@contoso.com"
+publisher_name = "Demo Publisher"

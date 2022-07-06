@@ -18,3 +18,7 @@ variable "publisher_name" {
 variable "publisher_email" {
     type = string
 }
+
+variable "api_name" {
+    type = string
+}

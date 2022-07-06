@@ -14,11 +14,16 @@ variable "publisher_name" {
     type = string
 }
 
-variable " publisher_email" {
+variable "publisher_email" {
     type = string
 }
 
 variable "sku_name" {
     type = string
     default = "Developer"
+}
+
+variable "sku_capacity" {
+    type = number
+    default = 1
 }
